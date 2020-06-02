@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private double real2;
     private double imagine1;
     private double imagine2;
+    double initialTime = System.nanoTime();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void customizationGraph(GraphView graph, LineGraphSeries line, int miny, int maxy) {
+        double time = (System.nanoTime() - initialTime)/1000000;
+        String execTime = Double.toString(time);
+        graph.setTitle("Execution time is" + execTime + "ms");
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(30);
